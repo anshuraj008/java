@@ -15,6 +15,5 @@ public class sum {
         int sum = firstNumber + secondNumber;
 
         System.out.println("The sum of " + firstNumber + " and " + secondNumber + " is " + sum);
-
     }
 }
