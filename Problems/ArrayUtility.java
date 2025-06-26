@@ -11,9 +11,18 @@ public class ArrayUtility {
         int i = 0;
         while(i < size) {
             System.out.println("Enter element " + (i + 1) + ": ");
-            nums[i] = input.nextInt();
+            nums[i] = input.nextInt(); 
             i++;
         }
         return nums;
+    }
+
+    public static void displayArray(int[] numArray) {
+        int i = 0;
+        while(i < numArray.length) {
+            System.out.println(numArray[i] + "");
+            i++;
+        }
+        System.out.println();
     }
 }

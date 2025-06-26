@@ -25,4 +25,4 @@ public class arrSumAvg {
         long sum = sum(numArray);
         return (int) (sum / numArray.length);
     }
-}
+} 

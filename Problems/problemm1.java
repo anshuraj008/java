@@ -1,6 +1,6 @@
 import java.util.Scanner;
 
-public class problem1 {
+public class problemm1 {
     public static void main(String[] args) {
         Scanner input = new Scanner(System.in);
         System.out.println("Welcome tp Multiplication world\n");
