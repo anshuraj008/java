@@ -26,7 +26,7 @@ public class IsSortedArr {
     }
 
     public static boolean isIncreasing(int[] numArr) {
-        int i =1;
+        int i = 1;
         while (i < numArr.length) {
             if(numArr[i] < numArr[i-1]) {
                 return false;
