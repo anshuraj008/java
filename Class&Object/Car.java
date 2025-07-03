@@ -53,4 +53,13 @@ public class Car {
     public float getCurrentFuelLevel(){
         return currentFuelInLiters;
     }
+
+
+    //Cleanup resources
+    // 1. Garbage Collector
+    // 2. finalize() method
+    @Override
+    protected void finalize() throws Throwable {
+        System.out.println("I am in Finalize");
+    }
 }
