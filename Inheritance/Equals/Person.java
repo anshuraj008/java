@@ -14,8 +14,20 @@ public class Person {
 
     @Override
     public boolean equals(Object obj) {
-        return super.equals(obj);
+        if(!(obj instanceof Person)){
+            return false;
+        }
+        Person per = (Person) obj;
+        return per.name.equals(name) && 
+        per.age == age && 
+        per.gender.equals(gender);
     }
+
+    @Override
+    public int hashCode() {
+        return (int) Math.round(age);
+    }
+    
 
     //getters and setters
     public String getName() {
