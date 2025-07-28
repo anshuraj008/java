@@ -1,7 +1,7 @@
-public class car extends Vehiclee{
+public class carr extends Vehiclee{
      private int noOfDoors;
 
-    public car() {
+    public carr() {
         super(4);
     }
 
