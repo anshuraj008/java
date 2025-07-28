@@ -8,8 +8,7 @@ public abstract class Vehiclee implements Transport{
 
     @Override
     public void getSetGo() {
-        System.out.println("going to place....");
-        
+        System.out.println("going to place...."); 
     }
 
     public Vehiclee(int noOfTires) {
