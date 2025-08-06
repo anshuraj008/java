@@ -3,7 +3,7 @@ public class function1 {
     public static void main(String[] args) {
 
         System.out.println("In main method");
-        greetUser(); //Method call
+        greetUser(); //Method call & function call
         greetUser();
         System.out.println("Method calling completed");
     }

@@ -2,8 +2,6 @@ import java.util.Scanner;
 
 public class retuns {
     public static void main(String[] args) {
-        Scanner input = new Scanner(System.in);
-
         greet();
         int first = readNumber() + 1;
         int second = readNumber() + 1;
