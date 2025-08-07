@@ -6,7 +6,7 @@ public class primeNo {
         Scanner sc = new Scanner(System.in);
         System.out.println("Welcome to prime number checker");
         
-        System.out.println("Enter a number : ");
+        System.out.printf("Enter a number : ");
         int num = sc.nextInt();
 
         boolean isPrime = isPrime(num);
@@ -15,7 +15,8 @@ public class primeNo {
         } else {
             System.out.println(num + " is not a prime number.");
         }
-        sc.close();
+        
+        primesInRange(20); //2 to 20
     }
 
     public static boolean isPrime (int num) {
@@ -27,5 +28,15 @@ public class primeNo {
             i++;
         }
         return true;
+    }
+
+
+    public static void primesInRange(int n) {
+        for(int i=2; i<=n; i++) {
+            if(isPrime(i)) { //true
+                System.out.print(i+" ");
+            }
+        }
+        System.out.println();
     }
 }
