@@ -4,6 +4,7 @@ public class SpiralMatrix {
                           {5, 6, 7, 8}, 
                           {9, 10, 11, 12},
                           {13, 14, 15, 16}};
+        printSpiral(matrix);
     }
 
     public static void printSpiral(int matrix[][]){
@@ -15,7 +16,7 @@ public class SpiralMatrix {
         while(startRow <= endRow && startCol <= endCol){
             //top
             for(int j=startCol; j<=endCol; j++){
-                System.out.print(matrix[startRow] [j]+" ");
+                System.out.print(matrix[startRow][j]+" ");
             }
 
             //right
@@ -25,12 +26,18 @@ public class SpiralMatrix {
 
             //bottom
             for(int j=endCol-1; j>=startCol; j--){
+                if(startRow == endRow){
+                    break;
+                }
                 System.out.print(matrix[endRow] [j]+" ");
             }
 
             //left
-            for(int i=endRow-1; i>=startRow; i--){
-                System.out.print(matrix[i][endRow]+" ");
+            for(int i=endRow-1; i>=startRow+1; i--){
+                if(startCol == endCol){
+                break;
+                }
+                System.out.print(matrix[i][startCol]+" ");
             }
 
             startCol++;
