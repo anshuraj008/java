@@ -1,0 +1,41 @@
+import java.util.Arrays;
+// import java.util.Collections;
+
+public class InbuiltSort {
+        public static void main(String[] args) {
+        int arr[] = {5,3,1,7,5,2};
+        Arrays.sort(arr, 0, 2);
+        // Arrays.sort(arr, 0, 2, Collections.reverseOrder());
+        printArr(arr);
+    }
+
+    public static void insertionSort(int arr[]){
+        for(int i=1; i<arr.length; i++){
+            int curr = arr[i];
+            int prev = i-1;
+
+            //finding out the correct position to insert
+            while(prev >= 0 && arr[prev] > curr){
+                arr[prev+1] = arr[prev];
+                prev--;
+            }
+            //insertion
+            arr[prev+1] = curr; 
+        }
+    }
+
+    //print array
+    public static void printArr(int arr[]){
+        for(int i=0; i<arr.length; i++){
+            System.out.print(arr[i] + " ");
+        }
+        System.out.println();
+    }
+
+    // public static int compare(int a, int b){
+    //     // a<b -ve
+    //     // a==b 0
+    //     // a>b +ve
+    //     return b-a;
+    // }
+}

@@ -16,9 +16,9 @@ public class twoDimensional {
 
         //Traverse the array
         int i = 0;
-        while (i < arr.length) {
+        while (i < arr.length) { //0 to n rows
             int j = 0;
-            while (j < arr[i].length) {
+            while (j < arr[i].length) { // 0 to m columns
                 System.out.print(arr[i][j] + "");
                 j++;
             }
