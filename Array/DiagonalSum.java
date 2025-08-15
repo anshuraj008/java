@@ -26,7 +26,7 @@ public class DiagonalSum {
 
         //0(n) time complexicity
         for(int i=0; i<matrix.length; i++){
-            //pd
+            //primary diagonal
             sum += matrix[i][i];
             //sd
             if(i != matrix.length-1-i)
