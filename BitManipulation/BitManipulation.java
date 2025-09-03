@@ -71,6 +71,5 @@ public class BitManipulation {
         int bitMask = a | b;
         return n & bitMask;
     }
-
-    
+ 
 }

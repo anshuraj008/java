@@ -17,7 +17,7 @@ public class basic1 {
     public static long factorial(int num){
         System.out.println("Function call: " + num);
         
-        if(num == 1){
+        if(num == 0){
             return 1;
         }
         return num * factorial(num - 1);
