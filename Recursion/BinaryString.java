@@ -21,7 +21,7 @@ public class BinaryString {
 
          printBinaryString(n-1, 0, str+"0");
          if(lastPlace == 0) {
-            printBinaryString(n-1, 1, str+"1");
-         }
+        printBinaryString(n-1, 1, str+"1");
+        }
     }
 }
