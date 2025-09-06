@@ -1,6 +1,6 @@
 import java.util.ArrayList;
 
-public class Basic{
+public class Basic21{
     public static void main(String[] args) {
     ArrayList<Integer> list = new ArrayList<>();
 
