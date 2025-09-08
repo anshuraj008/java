@@ -6,8 +6,8 @@ public class Palindrome1 {
         System.out.print("Welcome to Palindrome Checker Program\nEnter a word: ");
         String word = input.next();
         System.out.println("Your String is " + 
-                            ((isPalindrome(word) ? "Palindrone"
-                                                  : "Not Palindrone")));
+            ((isPalindrome(word) ? "Palindrone"
+                : "Not Palindrone")));
     }
 
     public static boolean isPalindrome(String word) {
