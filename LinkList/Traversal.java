@@ -131,7 +131,43 @@ class LinkedList1 {
         //key not found
         return -1;
     }
-        
+
+
+    //search key recursive
+    public int helper(Node head, int key){  //O(n)
+        if(head == null){
+            return -1;
+        }
+
+        if(head.data == key){
+            return 0;
+        }
+        int idx = helper(head.next, key);
+        if(idx == -1){ //not found data
+            return -1;
+        }
+        return idx + 1;  // found data
+    }
+
+    public int recSearch(int key){
+        return helper(head, key);
+    }
+
+
+    //reverse a linked list
+    public void reverse(){
+        Node prev = null;
+        Node curr = tail =  head;
+        Node next;
+
+        while (curr != null){
+            next = curr.next;
+            curr.next = prev;
+            prev = curr;
+            curr = next;
+        }
+        head = prev;
+    }
 }
 
 public class Traversal {
@@ -156,5 +192,11 @@ public class Traversal {
         
         System.out.println(ll.itrSearch(3));
         System.out.println(ll.itrSearch(10));
+
+        System.out.println(ll.recSearch(3));
+        System.out.println(ll.recSearch(10));
+
+        ll.reverse();
+        ll.print();
     }
 };
