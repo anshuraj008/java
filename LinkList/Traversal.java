@@ -155,7 +155,7 @@ class LinkedList1 {
 
 
     //reverse a linked list
-    public void reverse(){
+    public void reverse(){ //O(n)
         Node prev = null;
         Node curr = tail =  head;
         Node next;
@@ -167,6 +167,80 @@ class LinkedList1 {
             curr = next;
         }
         head = prev;
+    }
+
+
+    //Delete a node by value
+    public void deleteNthfromEnd(int n){
+        //calculate size
+        int sz = 0;
+        Node temp = head;
+        while(temp != null){
+            temp = temp.next;
+            sz++;
+        }
+
+        if(n == sz) { //remove first
+            head = head.next;
+            return;
+        }
+
+        //sz - n
+        int i =1;
+        int iToFind = sz-n;
+        Node prev = head;
+        while(i < iToFind){ //find node to be deleted
+            prev = prev.next;
+            i++;
+        }
+        prev.next = prev.next.next; //delete
+        return;
+    
+    }
+
+
+    //Palindrome in LinkedList
+    public Node findMid(Node head){
+        Node slow = head;
+        Node fast = head;
+
+        while(fast != null && fast.next != null){
+            slow = slow.next; //+1
+            fast = fast.next.next; //+2
+        }
+        return slow;  //slow is my midNode
+    }
+
+
+    public boolean isPalindrome(){
+        if(head == null || head.next == null){
+            return true;
+        }
+        // step1 = find mid
+        Node midNode = findMid(head);
+
+        //step2 = reverse 2nd half
+        Node prev = null;
+        Node curr = midNode;
+        Node next;
+        while(curr != null){
+            next = curr.next;
+            curr.next = prev;
+            prev = curr;
+            curr = next;
+        }
+        Node right = prev; //right half head
+        Node left = head; //left half head
+
+        //step3 = check left half and right half
+        while(right != null){
+            if(left.data != right.data){
+                return false;
+            }
+            left = left.next;
+            right = right.next;
+        }
+        return true;
     }
 }
 
@@ -198,5 +272,15 @@ public class Traversal {
 
         ll.reverse();
         ll.print();
+
+        ll.deleteNthfromEnd(2);
+        ll.print(); 
+
+        ll.addLast(3);
+        ll.addLast(3);
+        ll.addLast(2);
+        ll.addLast(4);
+        ll.print();
+        System.out.println(ll.isPalindrome());
     }
 };
