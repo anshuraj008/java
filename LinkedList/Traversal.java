@@ -167,6 +167,7 @@ class LinkedList1 {
             curr = next;
         }
         head = prev;
+        
     }
 
 
