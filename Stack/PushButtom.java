@@ -42,25 +42,35 @@ public class PushButtom {
     }
   
     public static void main(String[] args) {
-        Stack<Integer> s1 = new Stack<>();
-        s1.push(10);
-        s1.push(20);
-        s1.push(30);
-        //30,20,10
+    Stack<Integer> s1 = new Stack<>();
+    s1.push(10);
+    s1.push(20);
+    s1.push(30);
+    System.out.println("Original stack (top to bottom): 30, 20, 10");
 
-        reverseStack(s1);
-        printStack(s1);
-        //10,20,30
+    // Test reverse stack
+    reverseStack(s1);
+    System.out.println("After reversing:");
+    printStack(s1);
+    System.out.println("Stack is now empty after printing");
 
-        pushBottom(s1, 5);
-        while(!s1.isEmpty()){
-            System.out.println(s1.peek());
-            s1.pop();
-        }
-
-        String str = "abcd";
-        String result = reverseString(str);
-        System.out.println(result);
-
+    // Create a new stack for pushBottom test
+    Stack<Integer> s2 = new Stack<>();
+    s2.push(10);
+    s2.push(20);
+    s2.push(30);
+    
+    System.out.println("New stack for pushBottom test:");
+    pushBottom(s2, 5);
+    
+    System.out.println("After pushing 5 to bottom:");
+    while(!s2.isEmpty()){
+        System.out.println(s2.pop());
     }
+
+    // String reverse test
+    String str = "abcd";
+    String result = reverseString(str);
+    System.out.println("Reversed string: " + result);
+}
 }
