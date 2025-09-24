@@ -53,13 +53,22 @@ public class Implementation {
     }
     public static void main(String[] args) {
         Queue q = new Queue(5);
-        q.add(1);
-        q.add(2);
-        q.add(3);
+        Queue.add(1);
+        Queue.add(2);
+        Queue.add(3);
         
-        while(!q.isEmpty()){
-            System.out.println(q.peek());
-            q.remove();
+        System.out.println("Initial queue:");
+        System.out.println("Front element: " + Queue.peek()); // Shows 1
+        
+        // Remove only the first element (1)
+        int removed = Queue.remove();
+        System.out.println("Removed element: " + removed); // Shows 1
+        
+        System.out.println("Queue after removing element 1:");
+        // Now the queue contains [2, 3]
+        while(!Queue.isEmpty()){
+            System.out.println(Queue.peek());
+            Queue.remove();
         }
     }
 }
