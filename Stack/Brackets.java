@@ -2,19 +2,20 @@ import java.util.*;
 
 public class Brackets {
     public static boolean isValid(String str){//O(n)
-        Stack<Character> s = new Stack<>();
+        Stack<String> s = new Stack<>();
         for(int i=0; i<str.length(); i++){
             char curr = str.charAt(i);
             //opening
             if(curr == '(' || curr == '{' || curr == '['){
-                s.push(curr);
+                s.push(String.valueOf(curr));
             } else { //closing
                 if(s.isEmpty()){
                     return false;
                 }
-                if((s.peek() == '(' && curr == ')') || //()
-                   (s.peek() == '{' && curr == '}') || //{}
-                   (s.peek() == '[' && curr == ']')){ //[]
+                String top = s.peek();
+                if((top.equals("(") && curr == ')') || //()
+                   (top.equals("{") && curr == '}') || //{}
+                   (top.equals("[") && curr == ']')){ //[]
                     s.pop();
                 } else {
                     return false;
@@ -27,12 +28,12 @@ public class Brackets {
 
 
     public static  boolean isDuplicate(String str2){//O(n)
-        Stack<Character> s = new Stack<>();
+        Stack<String> s = new Stack<>();
         for(int i=0; i<str2.length(); i++){
             char curr = str2.charAt(i);
             if(curr == ')'){
                 int count = 0;
-                while(s.peek() != '('){
+                while(!s.peek().equals("(")){
                     s.pop();
                     count++;
                 }
@@ -42,7 +43,7 @@ public class Brackets {
                     s.pop(); //pop opening bracket
                 }
             } else {
-                s.push(curr);
+                s.push(String.valueOf(curr));
             }
         }
         return false;

@@ -27,15 +27,15 @@ public class PushButtom {
     }
 
     public static String reverseString(String str){
-        Stack<Character> s2 = new Stack<>();
+        Stack<String> s2 = new Stack<>();
         int idx = 0;
         while(idx<str.length()){
-            s2.push(str.charAt(idx));
+            s2.push(String.valueOf(str.charAt(idx)));
             idx++;
         }
         StringBuilder result = new StringBuilder("");
         while(!s2.isEmpty()){
-            char curr = s2.pop();
+            String curr = s2.pop();
             result.append(curr);
         }
         return result.toString();
