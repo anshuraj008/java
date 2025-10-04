@@ -16,5 +16,6 @@ public class triangleArea {
         double area = 0.5 * base * height; // 0.5 is the formula for the area of a triangle
 
         System.out.println("Your triangle area is: " + area + " cms2");
+        input.close();
     }
 }
