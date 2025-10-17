@@ -10,7 +10,7 @@ public class For {
         //      i++;
         // }
 
-        for (int i = 1; i <= 100; i++) {
+        for (int i = 0; i <= 100; i++) {
             System.out.println(i + "");
         }
         input.close();
