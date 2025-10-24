@@ -88,6 +88,8 @@ public class HeightCal {
         System.out.println(sum(root));
 
         System.out.println(diameter1(root));
+        
         System.out.println(diameter2(root).diameter);
+        System.out.println(diameter2(root).height);
     }
 }
