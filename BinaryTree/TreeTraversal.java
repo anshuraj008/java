@@ -1,6 +1,6 @@
 import java.util.*;
 
-public class PreorderTree {
+public class TreeTraversal {
     static class Node{
         int data;
         Node left;

@@ -1,4 +1,4 @@
-public class HeightCal {
+public class TreeCalculation {
     static class Node{
         int data;
         Node left;
