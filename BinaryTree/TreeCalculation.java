@@ -1,3 +1,5 @@
+import java.util.*;
+
 public class TreeCalculation {
     static class Node{
         int data;
@@ -75,7 +77,94 @@ public class TreeCalculation {
         return new Info(diameter, height);
     }
 
-    public static void main(String[] args) { 
+    public static boolean isIdentical(Node root, Node subRoot){
+        if(root == null && subRoot == null){
+            return true;
+        }
+        else if(root == null || subRoot == null){
+            return false;
+        }
+        if(root.data != subRoot.data){
+            return false;
+        }
+
+        if(!isIdentical(root.left, subRoot.left)){
+            return false;
+        }
+        if(!isIdentical(root.right, subRoot.right)){
+            return false;
+        }
+        return true;
+    }
+
+    public static boolean isSubtree(Node root, Node subRoot){
+        if(root == null){
+            return false;
+        }
+        if(root.data == subRoot.data){
+            if(isIdentical(root, subRoot)){
+                return true;
+            }
+        }
+        
+        // boolean leftAns = isSubtree(root.left, subRoot);
+        // boolean rightAns = isSubtree(root.right, subRoot);
+        // return leftAns || rightAns;
+        return isSubtree(root.left, subRoot) || isSubtree(root.right, subRoot);
+    }
+
+    static class Info2{
+        Node node;
+        int hd;
+
+        public Info2(Node node, int hd){
+            this.node = node;
+            this.hd = hd;
+        }
+    } 
+
+    public static void topView(Node root){
+        //Level order
+        Queue<Info2> q = new LinkedList<>();
+        HashMap<Integer, Node> map = new HashMap<>();
+
+        int min = 0, max = 0;
+        q.add(new Info2(root, 0));
+        q.add(null);
+
+        while(!q.isEmpty()){
+            Info2 curr = q.remove();
+            if(curr == null){
+                if(q.isEmpty()){
+                    break;
+                }
+                else{
+                    q.add(null);
+                }
+            } else {
+                if(!map.containsKey(curr.hd)){ //first time hd is seen, add to map
+                 map.put(curr.hd, curr.node);
+                }
+
+                if(curr.node.left != null){
+                  q.add(new Info2(curr.node.left, curr.hd - 1));
+                  min = Math.min(min, curr.hd - 1);
+                }
+                if(curr.node.right != null){
+                   q.add(new Info2(curr.node.right, curr.hd + 1));
+                   max = Math.max(max, curr.hd + 1);
+                }
+            }  
+        }
+
+        for(int i = min; i <= max; i++){
+            System.out.print(map.get(i).data+" ");
+        }
+        System.out.println();
+    }
+
+    public static void main(String[] args) {
+        //Binary Tree Construction
         Node root = new Node(1);
         root.left = new Node(2);
         root.right = new Node(3);
@@ -83,13 +172,20 @@ public class TreeCalculation {
         root.left.right = new Node(5);
         root.right.right = new Node(6);
 
+        //subtree calculations
+        Node subRoot = new Node(2);
+        subRoot.left = new Node(4);
+        subRoot.right = new Node(5);
+
         System.out.println(height(root));
         System.out.println(count(root));
         System.out.println(sum(root));
-
         System.out.println(diameter1(root));
-        
         System.out.println(diameter2(root).diameter);
         System.out.println(diameter2(root).height);
+
+        System.out.println(isSubtree(root, subRoot));
+
+        topView(root); 
     }
 }
