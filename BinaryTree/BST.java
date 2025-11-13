@@ -6,8 +6,10 @@ public class BST {
         Node left;
         Node right;
 
-        Node(int data) {
-            this.data = data;
+        public Node(int data) {
+            this.data = data; 
+            this.left = null;
+            this.right = null;
         }
     } 
 
@@ -100,7 +102,7 @@ public class BST {
         public static void printPath(ArrayList<Integer> path){
              for(int i=0; i<path.size(); i++){
                 System.out.print(path.get(i) + "->");
-             }
+            }
                 System.out.println("Null");
         }
             
@@ -118,8 +120,48 @@ public class BST {
             printRootToLeaf(root.left, path);
             printRootToLeaf(root.right, path);
             path.remove(path.size() - 1);
+        } 
+
+        public static boolean isValidBST(Node root, Node min, Node max){
+            if(root == null){
+                return true;
+            }
+
+            if(min != null && root.data <= min.data){
+                return false;
+            }
+
+            if(max != null && root.data >= max.data){
+                return false;
+            }
+
+            return isValidBST(root.left, min, root) 
+                && isValidBST(root.right, root, max);
         }
             
+        
+         public static Node createMirror(Node root){ //0(n)
+            if(root == null){
+                return null;
+            }
+
+            Node leftMirror = createMirror(root.left);
+            Node rightMirror = createMirror(root.right);
+
+            root.left = rightMirror;
+            root.right = leftMirror;
+
+            return root;
+        }
+
+        public static void preorder(Node root){
+            if(root == null){
+                return;
+            }
+            System.out.print(root.data + " ");
+            preorder(root.left);
+            preorder(root.right);
+        }
 
      public static void main(String[] args) {
         // int values[] = {5, 1, 3, 4, 2, 7};
@@ -149,5 +191,14 @@ public class BST {
 
         System.out.println();
         printRootToLeaf(root, new ArrayList<>());
+
+        if(isValidBST(root, null, null)){
+            System.out.println("Valid BST");
+        } else {
+            System.out.println("Not a valid BST");
+        }
+
+        root = createMirror(root);
+        preorder(root);    //8 5 10 14 11 5 6 3
     }
 }
