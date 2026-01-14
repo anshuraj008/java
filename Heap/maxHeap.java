@@ -77,7 +77,7 @@ public class maxHeap {
         h.add(1);
         h.add(5);
 
-        while(!h.isEmpty()){
+        while(!h.isEmpty()){ //heap sorting  0(nlogn)
             System.out.println(h.peek());
             h.remove();
         }
