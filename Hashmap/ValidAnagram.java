@@ -1,6 +1,6 @@
 import java.util.*;
 
-public class ValidAnagram {
+public class ValidAnagram { //0(n)
     public static boolean isAnagram(String s, String t) {
         if(s.length() != t.length()) {
             return false;
