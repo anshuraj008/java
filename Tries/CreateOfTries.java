@@ -40,7 +40,7 @@ public class CreateOfTries {
         return curr.eow == true;
     }
 
-    public static boolean wordBreak(String key){
+    public static boolean wordBreak(String key){ //0(L^2)
         if(key.length() == 0){
             return true;
         }
