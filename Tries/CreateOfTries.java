@@ -45,11 +45,15 @@ public class CreateOfTries {
             return true;
         }
 
-        for(int i=1; i<key.length(); i++){
-            if(search(key.substring(0, i)) &&
-                wordBreak(key.substring(i))) {
+        for(int i=1; i<=key.length(); i++){
+            String prefix = key.substring(0, i);
+            if(search(prefix)) {
+                String suffix = key.substring(i);
+                System.out.println("Found: '" + prefix + "' | Remaining: '" + suffix + "'");
+                if(wordBreak(suffix)) {
                     return true;
                 }
+            }
         }
         return false;
     }
@@ -59,7 +63,9 @@ public class CreateOfTries {
             insert(arr[i]);
         }
 
-        String key = "ilikesamsung";
+        String key = "ilikesamsamsung";
+        String key2 = "ilikesamsungmobil";
         System.out.println(wordBreak(key));
+        System.out.println(wordBreak(key2));
     }
 }
