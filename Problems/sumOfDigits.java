@@ -23,8 +23,8 @@ public class sumOfDigits {
     // public static int sumOfDigit2(int num) {
     //     int sum = 0;
     //     while (num > 0) {
-    //         sum += num % 10;
-    //         num /= 10;
+    //         sum += num % 10;  // Get the last digit and add to sum
+    //         num /= 10;  // Remove the last digit
     //     }
     //     return sum;
     // }
