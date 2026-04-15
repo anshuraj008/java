@@ -19,13 +19,14 @@ public class LCM {
 
     public static int lcm(int num1, int num2) {
         int i = 1;
-        while(true) {
+        while(i <= num2) { //1 to num2 / true
             int factor = num1 * i;
             if (factor % num2 == 0) {
                 return factor;
             }
             i++;
         }
+        return 0;
     }
 
 }

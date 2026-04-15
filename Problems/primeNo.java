@@ -21,7 +21,7 @@ public class primeNo {
 
     public static boolean isPrime (int num) {
         int i = 2;
-        while (i <= num - 1) {
+        while (i <= num - 1) {  //2 to num-1 , i < num
             if (num % i == 0) {
                 return false;
             }

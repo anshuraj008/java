@@ -14,9 +14,9 @@ public class reverseTheDigit{
     public static int reverse(int num) {
         int newNum = 0;
         while (num > 0) {
-            int digit = num % 10;
-            newNum = newNum * 10 + digit;
-            num /= 10;
+            int digit = num % 10; // Get the last digit
+            newNum = newNum * 10 + digit;  // Shift the existing digits to the left and add the new digit
+            num /= 10;  // Remove the last digit from the original number
         }
         return newNum;
     }      

@@ -18,16 +18,16 @@ public class palindrome {
         }
     
         public static boolean isPalindrome(int num) {
-            int reverse = reverse(num);
-            return num == reverse;
+            int reverse = reverse(num);  // Get the reversed number
+            return num == reverse;  // Check if the original number is equal to the reversed number
         }
 
         public static int reverse(int num) {
-            int newNum = 0;
+            int newNum = 0;  // Initialize newNum to store the reversed number
             while (num > 0) {
-                int digit = num % 10;
-                newNum = newNum * 10 + digit;
-                num /= 10;
+                int digit = num % 10;  // Get the last digit of num
+                newNum = newNum * 10 + digit;  // Shift the existing digits of newNum to the left and add the new digit
+                num /= 10;  // Remove the last digit from num
             }
             return newNum;
         }

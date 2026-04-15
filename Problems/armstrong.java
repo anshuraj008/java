@@ -24,9 +24,9 @@ public class armstrong {
             System.out.println("Number of digits : " + noOfDigits);
             int finalNumber = 0;
             while(num > 0) {
-                int lastDigit = num % 10;
-                finalNumber = pow(lastDigit, noOfDigits);
-                num = num / 10;
+                int lastDigit = num % 10; // Get the last digit
+                finalNumber += pow(lastDigit, noOfDigits);  // Add the cube of the last digit to the final number
+                num = num / 10;  // Remove the last digit from the original number
             }
             return finalNumber == numCopy;
         }
@@ -34,7 +34,7 @@ public class armstrong {
         public static int pow(int num1, int num2) {
             int result = 1;
             int i = 0;
-            while(i < num2) {
+            while(i < num2) { //0 to num2-1
                 result = result * num1;
                 i++;
             }
@@ -45,7 +45,7 @@ public class armstrong {
             int digits = 0;
             while(num > 0) {
                 digits++;
-                num = num / 10;
+                num = num / 10;  // Count the digits and remove the last digit
             }
             return digits;
         }

@@ -13,19 +13,29 @@ public class ValidAnagram { //0(n)
             map.put(ch, map.getOrDefault(ch, 0) + 1);
         }
 
-        for(int i=0; i<t.length(); i++){
+        // for(int i=0; i<t.length(); i++){
+        //     char ch = t.charAt(i);
+        //     if(map.get(ch) != null){
+        //         if(map.get(ch) == 1) {
+        //             map.remove(ch);
+        //         } else {
+        //             map.put(ch, map.get(ch) - 1);
+        //         }
+        //     } else {
+        //         return false;
+        //     }
+        // }
+        // return map.isEmpty();
+
+        for (int i = 0; i < t.length(); i++) {
             char ch = t.charAt(i);
-            if(map.get(ch) != null){
-                if(map.get(ch) == 1) {
-                    map.remove(ch);
-                } else {
-                    map.put(ch, map.get(ch) - 1);
-                }
-            } else {
+            if (!map.containsKey(ch) || map.get(ch) == 0) {
                 return false;
             }
+            map.put(ch, map.get(ch) - 1);
         }
-        return map.isEmpty();
+
+        return true;
     }
     public static void main(String[] args) {
         String s = "race";
