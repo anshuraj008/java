@@ -9,7 +9,6 @@ public class Solving {
     printFirstPatter(rows);
     }  
 
-    public static void
 
     public static void printFirstPatter(int maxRows){
         int rows = 0;
